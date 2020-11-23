@@ -1,0 +1,32 @@
+.overview {
+  display: flex;
+  flex: 1;  
+  flex-flow: column wrap;
+  margin-left: 80px;
+  margin-right: 80px;
+}
+
+.overview .head {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.overview .head .title {
+  margin-right: 30px;
+}
+
+.overview .head .title > h2 {
+  font-size: 38px;
+  font-weight: normal;
+}
+
+.overview .head .actions {
+  display: flex;
+  flex-flow: row nowrap;
+
+  button + button {
+    margin-left: 10px;
+  }
+}

@@ -1,0 +1,38 @@
+.app {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100vh;
+}
+
+.btn {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  min-width: 60px;
+  padding: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.button--primary {
+  color: #fff;
+  background-color: #10cd45;
+
+  &:hover {
+    background-color: #158635;
+  }
+}
+
+.button--secondary {
+  color: #9dadb9;
+  background-color: #eef2f5;
+
+  &:hover {
+    background-color: #777f85;
+  }
+}
