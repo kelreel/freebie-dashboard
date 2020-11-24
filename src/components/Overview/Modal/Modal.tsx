@@ -1,11 +1,6 @@
 import "./Modal.scss";
 
-import React, {
-  ReactElement,
-  useCallback,
-  useEffect,
-  useState,
-} from "react";
+import React, { ReactElement, useCallback, useEffect, useState } from "react";
 
 type Props = {
   visible: boolean;
@@ -20,11 +15,19 @@ export default function Modal({ visible, onClose, children }: Props) {
     setState(visible);
   }, [visible, onClose]);
 
-  const escFunction = useCallback((e: KeyboardEvent) => {
-    if (e.key === "Escape") {
-      close();
-    }
-  }, []);
+  const close = useCallback(() => {
+    setState(false);
+    onClose();
+  }, [onClose]);
+
+  const escFunction = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        close();
+      }
+    },
+    [close]
+  );
 
   useEffect(() => {
     document.addEventListener("keydown", escFunction, false);
@@ -32,12 +35,7 @@ export default function Modal({ visible, onClose, children }: Props) {
     return () => {
       document.removeEventListener("keydown", escFunction, false);
     };
-  }, []);
-
-  const close = () => {
-    setState(false);
-    onClose();
-  };
+  }, [escFunction]);
 
   if (!state) {
     return null;

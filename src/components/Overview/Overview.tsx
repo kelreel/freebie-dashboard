@@ -3,9 +3,14 @@ import AddPersonForm from "./AddPersonForm/AddPersonForm";
 import Modal from "./Modal/Modal";
 import "./Overview.scss";
 import Table from "./Table/Table";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
+import TablePagination from "./Table/Pagination/TablePagination";
 
 export default function Overview() {
-  const [state, setState] = useState(true);
+  const [showForm, setShowForm] = useState(false);
+
+  const hideForm = () => setShowForm(false);
 
   return (
     <main className="overview">
@@ -17,17 +22,18 @@ export default function Overview() {
           <button className="btn button--secondary">▪▪▪</button>
           <button
             className="btn button--primary"
-            onClick={() => setState(true)}
+            onClick={() => setShowForm(true)}
           >
             Add
           </button>
         </div>
       </div>
-      <div className="table">
+      <section className="table">
         <Table />
-      </div>
-      <Modal visible={state} onClose={() => setState(false)}>
-        <AddPersonForm />
+        <TablePagination />
+      </section>
+      <Modal visible={showForm} onClose={hideForm}>
+        <AddPersonForm onSubmitOwner={hideForm} />
       </Modal>
     </main>
   );

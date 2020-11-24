@@ -1,0 +1,29 @@
+.pagination {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination .page-cube {
+  display: block;
+  min-width: 36px;
+  height: 36px;
+  border-radius: 5px;
+  background-color: #EEF2F5;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.pagination .page-cube p {
+  line-height: 0;
+}
+
+.pagination .arrow {
+  cursor: pointer;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}

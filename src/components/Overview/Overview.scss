@@ -4,6 +4,7 @@
   flex-flow: column wrap;
   margin-left: 80px;
   margin-right: 80px;
+  margin-bottom: 100px;
 }
 
 .overview .head {
@@ -29,4 +30,10 @@
   button + button {
     margin-left: 10px;
   }
+}
+
+.overview section.table {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }

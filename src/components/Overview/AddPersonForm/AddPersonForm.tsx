@@ -1,31 +1,38 @@
 import React from "react";
 import "./AddPersonForm.scss";
 import { useForm } from "react-hook-form";
-
-interface IFormInput {
-  owner: string;
-  date: string;
-  profit: number;
-  losses: number;
-  phone: string;
-}
+import { OwnerItem } from "../../../store/types";
+import { useDispatch } from "react-redux";
+import { addOwner } from "../../../store/tableSlice";
 
 // eslint-disable-next-line no-useless-escape
 const phoneRegex = /^((\+7|7|8)+([0-9]){10})$/i;
 
-export default function AddPersonForm() {
-  const { register, formState, handleSubmit, errors } = useForm<IFormInput>({
+type FormInput = Omit<OwnerItem, "id">;
+
+type Props = {
+  onSubmitOwner: Function
+}
+
+export default function AddPersonForm({ onSubmitOwner }: Props) {
+  const { register, formState, handleSubmit, errors } = useForm<FormInput>({
     mode: "onBlur",
     defaultValues: {
       owner: "First Last",
-      date: new Date().toISOString().substring(0, 10),
-      profit: 567.89,
+      endDate: new Date().toISOString().substring(0, 10),
+      profits: 567.89,
       losses: 123.45,
       phone: "+79100000000",
     },
   });
 
-  const onSubmit = (data: IFormInput) => console.log(data);
+  const dispatch = useDispatch();
+
+  const onSubmit = (data: FormInput) => {
+    let owner: OwnerItem = { ...data, id: Math.random() };
+    dispatch(addOwner(owner));
+    onSubmitOwner()
+  };
 
   return (
     <form className="person-form" onSubmit={handleSubmit(onSubmit)}>
@@ -47,28 +54,28 @@ export default function AddPersonForm() {
       <div className="form__item">
         <label>Date</label>
         <input
-          name="date"
+          name="endDate"
           type="date"
           placeholder="12/05/05"
           ref={register({ required: true })}
         />
-        {errors.date?.type === "required" && (
+        {errors.endDate?.type === "required" && (
           <span className="error">This field is required</span>
         )}
       </div>
       <div className="form__item">
         <label>Profit</label>
         <input
-          name="profit"
+          name="profits"
           type="number"
           placeholder="155.87"
           step="0.01"
           ref={register({ required: true, min: 0 })}
         />
-        {errors.profit?.type === "required" && (
+        {errors.profits?.type === "required" && (
           <span className="error">This field is required</span>
         )}
-        {errors.profit?.type === "min" && (
+        {errors.profits?.type === "min" && (
           <span className="error">Minimal value: 0</span>
         )}
       </div>
@@ -99,7 +106,7 @@ export default function AddPersonForm() {
         {errors.phone?.type === "required" && (
           <span className="error">This field is required</span>
         )}
-        {(errors.phone?.type === "pattern") && (
+        {errors.phone?.type === "pattern" && (
           <span className="error">Incorrect phone number</span>
         )}
       </div>
