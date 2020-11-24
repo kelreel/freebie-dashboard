@@ -1,11 +1,11 @@
+import "./Modal.scss";
+
 import React, {
   ReactElement,
-  SyntheticEvent,
+  useCallback,
   useEffect,
   useState,
 } from "react";
-import AddPersonForm from "../AddPersonForm/AddPersonForm";
-import "./Modal.scss";
 
 type Props = {
   visible: boolean;
@@ -20,7 +20,21 @@ export default function Modal({ visible, onClose, children }: Props) {
     setState(visible);
   }, [visible, onClose]);
 
-  const close = (e: SyntheticEvent) => {
+  const escFunction = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape") {
+      close();
+    }
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener("keydown", escFunction, false);
+
+    return () => {
+      document.removeEventListener("keydown", escFunction, false);
+    };
+  }, []);
+
+  const close = () => {
     setState(false);
     onClose();
   };
