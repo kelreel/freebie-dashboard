@@ -22,10 +22,10 @@ let initialState: SliceState = {
 };
 
 if (localStorage.getItem("owners")) {
-  initialState.owners = JSON.parse(localStorage.getItem("owners")!).owners;
+  initialState.owners = JSON.parse(localStorage.getItem("owners")!);
 } else {
   initialState.owners = initial_data;
-  localStorage.setItem("owners", JSON.stringify(initialState));
+  localStorage.setItem("owners", JSON.stringify(initialState.owners));
 }
 
 initialState.pagination.total_pages =
