@@ -1,0 +1,27 @@
+.person-form {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+.person-form .form__item {
+  display: flex;
+  flex-flow: column wrap;
+  margin: 10px 0;
+}
+
+.person-form .form__item label {
+  margin-bottom: 10px;
+}
+
+.person-form .form__item input {
+  padding: 8px;
+}
+
+.person-form .form__item .error {
+  margin-top: 5px;
+  color: red;
+}
+
+.person-form .btn {
+  margin-top: 15px;
+}

@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import AddPerson from "./AddPerson/AddPerson";
+import AddPersonForm from "./AddPersonForm/AddPersonForm";
+import Modal from "./Modal/Modal";
 import "./Overview.scss";
 import Table from "./Table/Table";
 
 export default function Overview() {
-  const [state, setState] = useState(false);
+  const [state, setState] = useState(true);
+
   return (
     <main className="overview">
       <div className="head">
@@ -13,7 +15,10 @@ export default function Overview() {
         </div>
         <div className="actions">
           <button className="btn button--secondary">▪▪▪</button>
-          <button className="btn button--primary" onClick={() => setState(true)}>
+          <button
+            className="btn button--primary"
+            onClick={() => setState(true)}
+          >
             Add
           </button>
         </div>
@@ -21,7 +26,9 @@ export default function Overview() {
       <div className="table">
         <Table />
       </div>
-      <AddPerson visible={state} />
+      <Modal visible={state} onClose={() => setState(false)}>
+        <AddPersonForm />
+      </Modal>
     </main>
   );
 }

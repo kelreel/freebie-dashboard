@@ -17,6 +17,16 @@
   padding: 8px;
   cursor: pointer;
   transition: 0.3s;
+
+  &:disabled {
+    background-color: rgb(160, 160, 160);
+    cursor: not-allowed;
+    color: rgb(187, 187, 187);
+
+    &:hover {
+      background-color: rgb(160, 160, 160);
+    }
+  }
 }
 
 .button--primary {
