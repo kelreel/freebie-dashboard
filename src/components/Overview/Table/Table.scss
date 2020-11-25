@@ -1,8 +1,8 @@
 .overview-table {
-  width: 100%;
   margin: 20px 0;
   border-collapse: collapse;
   font-size: 14px;
+  width: 100%;
 }
 
 .overview-table thead th {
@@ -21,11 +21,11 @@ td {
   transition: 0.5s;
 
   &:nth-child(odd) {
-    background-color: rgba(238, 242, 245, 0.4)
+    background-color: rgba(238, 242, 245, 0.4);
   }
 
   &:hover {
-    background-color: rgb(230, 233, 235)
+    background-color: rgb(230, 233, 235);
   }
 }
 
@@ -57,4 +57,13 @@ td {
 
 .overview-table .losses {
   color: #e44067;
+}
+
+@media screen and (max-width: 500px) {
+  .overview-table {
+    display: block;
+    white-space: nowrap;
+    overflow-x: auto;
+    width: 90vw;
+  }
 }

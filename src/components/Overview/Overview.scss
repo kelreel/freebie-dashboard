@@ -35,5 +35,16 @@
 .overview section.table {
   display: flex;
   flex-flow: column wrap;
+  justify-content: center;
   align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  .overview .head .title > h2 {
+    font-size: 26px;
+  }
+  .overview {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
 }

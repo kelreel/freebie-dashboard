@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Sidebar.scss";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as MenuIcon } from "../../../assets/MenuItem.svg";
+import { ReactComponent as ToolbarMenuIcon } from "../../../assets/menu.svg";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
     <aside className="sidebar">
       <Logo className="logo" />
+      {/* <ToolbarMenuIcon
+        className="toolbar-menu__icon"
+      /> */}
       <div className="line">
         <hr />
       </div>

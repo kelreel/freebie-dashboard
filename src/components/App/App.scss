@@ -45,3 +45,10 @@
     background-color: #777f85;
   }
 }
+
+
+@media screen and (max-width: 800px) {
+  .app {
+    flex-flow: column wrap;
+  }
+}
