@@ -3,8 +3,6 @@ import AddPersonForm from "./AddPersonForm/AddPersonForm";
 import Modal from "./Modal/Modal";
 import "./Overview.scss";
 import Table from "./Table/Table";
-import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
 import TablePagination from "./Table/Pagination/TablePagination";
 
 export default function Overview() {

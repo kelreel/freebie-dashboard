@@ -2,9 +2,20 @@
   position: absolute;
   background-color: rgba(226, 177, 177, 0.651);
   width: 100%;
-  height: 100%;
-  left: 0;
+  height: 100% ;
   top: 0;
+  left: 0;
+}
+
+.modal__content {
+  position: relative;
+  width: 300px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  padding-top: 10px;
+  margin: auto;
+  top: 15%;
 }
 
 .modal__wrapper {
@@ -21,21 +32,10 @@
     background-color: rgb(238, 238, 238);
     border: 1px solid #ccc;
     border-radius: 50%;
-    transition: .5s;
+    transition: 0.5s;
 
     &:hover {
       background-color: rgb(177, 177, 177);
     }
   }
-}
-
-.modal__content {
-  position: relative;
-  width: 300px;
-  background-color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  padding-top: 10px;
-  margin: auto;
-  top: 15%;
 }

@@ -1,17 +1,20 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Sidebar.scss";
 import { ReactComponent as Logo } from "../../../assets/Logo.svg";
 import { ReactComponent as MenuIcon } from "../../../assets/MenuItem.svg";
-import { ReactComponent as ToolbarMenuIcon } from "../../../assets/menu.svg";
+import { ReactComponent as CloudIcon } from "../../../assets/cloud.svg";
+import { ReactComponent as SketchIcon } from "../../../assets/Sketch.svg";
+import { ReactComponent as ExperimentsIcon } from "../../../assets/Experiments.svg";
+import { ReactComponent as SecurityIcon } from "../../../assets/Security.svg";
+import { ReactComponent as OwnershipIcon } from "../../../assets/Ownership.svg";
+import { ReactComponent as AbIcon } from "../../../assets/ab-test.svg";
+import { ReactComponent as LogoutIcon } from "../../../assets/Logout.svg";
 import { Link } from "react-router-dom";
 
 function Sidebar() {
   return (
     <aside className="sidebar">
       <Logo className="logo" />
-      {/* <ToolbarMenuIcon
-        className="toolbar-menu__icon"
-      /> */}
       <div className="line">
         <hr />
       </div>
@@ -22,31 +25,31 @@ function Sidebar() {
             <Link to="/">Overview</Link>
           </li>
           <li className="menu__item">
-            <MenuIcon />
+            <CloudIcon />
             <Link to="/cloud">Cloud</Link>
           </li>
           <li className="menu__item">
-            <MenuIcon />
+            <SketchIcon />
             <Link to="/sketch">Sketch</Link>
           </li>
           <li className="menu__item">
-            <MenuIcon />
+            <ExperimentsIcon />
             <Link to="/experiments">Experiments</Link>
           </li>
           <li className="menu__item">
-            <MenuIcon />
+            <SecurityIcon />
             <Link to="/security">Security</Link>
           </li>
           <li className="menu__item">
-            <MenuIcon />
+            <OwnershipIcon />
             <Link to="/ownership">Ownership</Link>
           </li>
           <li className="menu__item">
-            <MenuIcon />
+            <AbIcon />
             <Link to="/tests">A/B Test</Link>
           </li>
           <li className="menu__item">
-            <MenuIcon />
+            <LogoutIcon />
             <Link to="/logout">Logout</Link>
           </li>
         </ul>
